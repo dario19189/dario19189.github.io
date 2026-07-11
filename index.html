@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- Tailwind CSS for modern, premium styling -->
+    <script src="https://tailwindcss.com"></script>
+    <!-- Alpine.js for interactive features like tabs and music toggles -->
+    <script defer src="https://jsdelivr.net"></script>
+    <!-- FontAwesome for clean icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Google Fonts for elegant typography -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .dark-glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-bg { background: linear-gradient(135deg, #fef08a 0%, #fbcfe8 50%, #c7d2fe 100%); }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-slate-800 implementation-bg smooth-scroll" x-data="{ currentTab: 'home', musicPlaying: false }">
+
+    <!-- Background Music Holder (Add an MP3 link inside src) -->
+    <audio id="bg-music" loop src="https://soundhelix.com"></audio>
+
+    <!-- Floating Audio Control -->
+    <button @click="musicPlaying = !musicPlaying; const audio = document.getElementById('bg-music'); musicPlaying ? audio.play() : audio.pause()" 
+            class="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-white text-pink-500 shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
+        <i class="fas" :class="musicPlaying ? 'fa-volume-up animate-bounce' : 'fa-volume-mute'"></i>
+    </button>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 w-full glass px-6 py-4 flex justify-between items-center shadow-sm">
+        <span class="serif text-xl font-bold tracking-wide text-pink-600">To My Amazing Sister ✨</span>
+        <nav class="flex gap-2 bg-slate-100/50 p-1 rounded-xl">
+            <button @click="currentTab = 'home'" :class="currentTab === 'home' ? 'bg-white text-pink-600 shadow' : 'text-slate-600'" class="px-4 py-2 rounded-lg font-medium text-sm transition-all">Home</button>
+            <button @click="currentTab = 'gallery'" :class="currentTab === 'gallery' ? 'bg-white text-pink-600 shadow' : 'text-slate-600'" class="px-4 py-2 rounded-lg font-medium text-sm transition-all">Gallery</button>
+            <button @click="currentTab = 'timeline'" :class="currentTab === 'timeline' ? 'bg-white text-pink-600 shadow' : 'text-slate-600'" class="px-4 py-2 rounded-lg font-medium text-sm transition-all">Memory Lane</button>
+            <button @click="currentTab = 'wishes'" :class="currentTab === 'wishes' ? 'bg-white text-pink-600 shadow' : 'text-slate-600'" class="px-4 py-2 rounded-lg font-medium text-sm transition-all">Messages</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- SECTION 1: HOME & COUNTDOWN -->
+        <div x-show="currentTab === 'home'" x-transition class="space-y-12">
+            <!-- Hero Canvas -->
+            <div class="text-center space-y-6 max-w-2xl mx-auto my-12">
+                <span class="bg-pink-100 text-pink-600 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">The Grand Celebration</span>
+                <h1 class="serif text-5xl md:text-7xl text-slate-900 font-bold leading-tight">Happy Birthday, <br><span class="text-transparent bg-clip-text bg-gradient-to-r disable-gradient from-pink-500 to-indigo-600">Bestie Sister!</span></h1>
+                <p class="text-lg text-slate-600">Today, we celebrate the most incredible person in our lives. Welcome to your personal digital kingdom, built with love just for you!</p>
+            </div>
+
+            <!-- Countdown Timer Container -->
+            <div class="glass rounded-3xl p-8 max-w-xl mx-auto text-center shadow-lg" 
+                 x-data="{ 
+                    days: '00', hours: '00', minutes: '00', seconds: '00',
+                    init() {
+                        const target = new Date();
+                        target.setDate(target.getDate() + 5); // Sets target to 5 days from now automatically. Change this date manually!
+                        setInterval(() => {
+                            const now = new Date().getTime();
+                            const diff = target - now;
+                            this.days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                            this.hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                            this.minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                            this.seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+                        }, 1000);
+                    }
+                 }">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 mb-4">Countdown to the Big Moment</h3>
+                <div class="flex justify-center gap-4 md:gap-8">
+                    <div class="bg-white/80 w-20 py-3 rounded-2xl shadow-sm"><span class="text-2xl md:text-3xl font-bold text-slate-800" x-text="days"></span><p class="text-[10px] text-slate-400 font-semibold uppercase">Days</p></div>
+                    <div class="bg-white/80 w-20 py-3 rounded-2xl shadow-sm"><span class="text-2xl md:text-3xl font-bold text-slate-800" x-text="hours"></span><p class="text-[10px] text-slate-400 font-semibold uppercase">Hours</p></div>
+                    <div class="bg-white/80 w-20 py-3 rounded-2xl shadow-sm"><span class="text-2xl md:text-3xl font-bold text-slate-800" x-text="minutes"></span><p class="text-[10px] text-slate-400 font-semibold uppercase">Mins</p></div>
+                    <div class="bg-white/80 w-20 py-3 rounded-2xl shadow-sm"><span class="text-2xl md:text-3xl font-bold text-slate-800" x-text="seconds"></span><p class="text-[10px] text-slate-400 font-semibold uppercase">Secs</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: PHOTO GALLERY -->
+        <div x-show="currentTab === 'gallery'" x-transition class="space-y-8">
+            <div class="text-center">
+                <h2 class="serif text-4xl text-slate-900 font-bold">Your Radiant Moments</h2>
+                <p class="text-slate-500 mt-2">A showcase of your brightest smiles and beautiful memories.</p>
+            </div>
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Photo Card 1 -->
+                <div class="bg-white p-3 rounded-3xl shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="overflow-hidden rounded-2xl bg-slate-100 h-80 relative flex items-center justify-center text-slate-300">
+                        <i class="far fa-image text-4xl absolute group-hover:scale-110 transition-transform"></i>
+                        <!-- Replace src with your image file path later, like: src="sister1.jpg" -->
+                        <img src="" alt="" class="w-full h-full object-cover relative z-10 error-fallback">
+                    </div>
+                    <p class="mt-3 font-semibold text-center text-slate-700">The Ultimate Fashion Icon ✨</p>
+                </div>
+                <!-- Photo Card 2 -->
+                <div class="bg-white p-3 rounded-3xl shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="overflow-hidden rounded-2xl bg-slate-100 h-80 relative flex items-center justify-center text-slate-300">
+                        <i class="far fa-image text-4xl absolute group-hover:scale-110 transition-transform"></i>
+                        <img src="" alt="" class="w-full h-full object-cover relative z-10 error-fallback">
+                    </div>
+                    <p class="mt-3 font-semibold text-center text-slate-700">Unstoppable Dreamer 💫</p>
+                </div>
+                <!-- Photo Card 3 -->
+                <div class="bg-white p-3 rounded-3xl shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="overflow-hidden rounded-2xl bg-slate-100 h-80 relative flex items-center justify-center text-slate-300">
+                        <i class="far fa-image text-4xl absolute group-hover:scale-110 transition-transform"></i>
+                        <img src="" alt="" class="w-full h-full object-cover relative z-10 error-fallback">
+                    </div>
+                    <p class="mt-3 font-semibold text-center text-slate-700">Always Making Everyone Laugh 😂</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: TIMELINE -->
+        <div x-show="currentTab === 'timeline'" x-transition class="space-y-12 max-w-2xl mx-auto">
+            <div class="text-center">
+                <h2 class="serif text-4xl text-slate-900 font-bold">Our Journey Together</h2>
+                <p class="text-slate-500 mt-2">Looking back at the milestones that shaped you.</p>
+            </div>
+            <!-- Timeline Line -->
+            <div class="relative border-l-2 border-pink-300 ml-4 space-y-8">
+                <!-- Era 1 -->
+                <div class="relative pl-8">
+                    <div class="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-pink-500 ring-4 ring-white"></div>
