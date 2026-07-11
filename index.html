@@ -27,6 +27,35 @@
         .timer-num { display: block; font-size: 1.8rem; font-weight: bold; color: #1e293b; }
         .timer-label { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; }
         .gallery-grid { display: flex; flex-direction: column; gap: 20px; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Belsha Akka!</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background: linear-gradient(135deg, #ffe4e6 0%, #fef08a 50%, #e0e7ff 100%); min-height: 100vh; color: #334155; padding-bottom: 60px; }
+        header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .site-title { font-size: 1.2rem; font-weight: bold; color: #db2777; margin-bottom: 10px; display: block; }
+        .nav-container { display: flex; justify-content: center; gap: 5px; background: #f1f5f9; padding: 4px; border-radius: 20px; max-width: 400px; margin: 0 auto; }
+        .nav-btn { background: none; border: none; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; color: #64748b; cursor: pointer; border-radius: 15px; transition: 0.2s; }
+        .nav-btn.active { background: white; color: #db2777; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tab-content { display: none; max-width: 600px; margin: 30px auto; padding: 0 20px; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero { text-align: center; margin: 40px 0; }
+        .badge { background: #fce7f3; color: #db2777; font-size: 0.75rem; font-weight: bold; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; }
+        h1 { font-size: 2.5rem; color: #0f172a; line-height: 1.2; margin-bottom: 15px; }
+        .highlight { background: linear-gradient(to right, #db2777, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #475569; font-size: 1rem; line-height: 1.5; }
+        .countdown-card { background: rgba(255,255,255,0.8); border-radius: 24px; padding: 25px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 450px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.5); }
+        .countdown-card h3 { font-size: 0.8rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin-bottom: 15px; }
+        .timer-grid { display: flex; justify-content: center; gap: 12px; }
+        .timer-box { background: white; width: 75px; padding: 12px 0; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .timer-num { display: block; font-size: 1.8rem; font-weight: bold; color: #1e293b; }
+        .timer-label { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; }
+        .gallery-grid { display: flex; flex-direction: column; gap: 20px; }
         .photo-card { background: white; padding: 12px; border-radius: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .photo-placeholder { background: #f8fafc; height: 260px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; items-center; color: #cbd5e1; border: 2px dashed #e2e8f0; margin-bottom: 12px; font-size: 0.9rem; font-weight: 500; }
         .photo-card p { text-align: center; font-weight: 600; color: #334155; font-size: 0.95rem; }
@@ -41,7 +70,7 @@
         .timeline p { font-size: 0.88rem; color: #475569; line-height: 1.4; }
         .wish-card { background: rgba(255,255,255,0.9); padding: 20px; border-radius: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); position: relative; border-left: 5px solid #db2777; }
         .wish-card h4 { font-size: 1rem; color: #1e293b; margin-bottom: 5px; }
-        .wish-card p { font-size: 0.9rem; color: #475569; italic; line-height: 1.5; font-style: italic; }
+        .wish-card p { font-size: 0.9rem; color: #475569; line-height: 1.5; font-style: italic; }
         footer { text-align: center; margin-top: 40px; font-size: 0.75rem; color: #94a3b8; font-weight: 500; }
     </style>
 </head>
@@ -61,7 +90,7 @@
     <div id="home" class="tab-content active">
         <div class="hero">
             <span class="badge">The Grand Celebration</span>
-            <h1>Happy Birthday, <br><span class="highlight">Bestie Sister!</span></h1>
+            <h1>Happy Birthday, <br><span class="highlight">Belsha Akka!</span></h1>
             <p>Today, we celebrate the most incredible person in our lives. Welcome to your personal digital kingdom, built with love just for you!</p>
         </div>
 
@@ -103,21 +132,21 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <span class="timeline-tag tag-pink">Childhood Eras</span>
-                <h4>Partner in Crime From Day One</h4>
-                <p>Sharing toys, stealing candies, and making up funny secret handshakes. You were always the coolest.</p>
+                <span class="timeline-tag tag-pink">Our Bond</span>
+                <h4>Sister by Heart</h4>
+                <p>You came into my life as a stranger, became my sister by heart, and now you're one of the greatest blessings I've ever received. Blood didn't make us siblings—love, trust, and the bond we built did.</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <span class="timeline-tag tag-blue">School Days</span>
-                <h4>Growing Up and Glo-ing Up</h4>
-                <p>Surviving late-night studies, heartbreaks, and questionable fashion trends together.</p>
+                <span class="timeline-tag tag-blue">The Surprise</span>
+                <h4>Meeting You Changed My Life Forever</h4>
+                <p>You walked into my life unexpectedly, but you earned a place in my heart that no one can replace. If someone asked me what the best surprise life ever gave me was, I'd simply say, 'My sister.'</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <span class="timeline-tag tag-green">Present Day</span>
-                <h4>An Absolute Superwoman</h4>
-                <p>Conquering the world with your unique kindness, strength, and endless energy.</p>
+                <span class="timeline-tag tag-green">Forever Family</span>
+                <h4>Always By Your Side</h4>
+                <p>Thank you for becoming family without sharing the same blood. I'd stand by you through anything. Happy Birthday, Akka! ❤️</p>
             </div>
         </div>
     </div>
@@ -129,20 +158,15 @@
             <p style="color: #64748b; font-size: 0.9rem; margin-top: 5px;">Special birthday cards written with love.</p>
         </div>
         <div class="wish-card">
-            <h4>From Mom & Dad</h4>
-            <p>"To our beautiful daughter, watching you grow into this spectacular human being has been the greatest joy of our lives. Never lose your sparkle!"</p>
-        </div>
-        <div class="wish-card" style="border-left-color: #4f46e5;">
-            <h4>From Your Favorite Sibling</h4>
-            <p>"Happy Birthday to my built-in best friend! Thank you for always listening to my long rants, covering for me, and being there. Have an incredible year!"</p>
+            <h4>From Your Loving Sibling</h4>
+            <p>"To my dearest Belsha Akka, thank you for being the most incredible sister. This digital kingdom is a small reminder of how irreplaceable you are in my life. Wishing you the absolute best year ahead!"</p>
         </div>
     </div>
 
     <footer>
-        Made with ♥ for Sister's Birthday Celebration
+        Made with ♥ for Belsha's Birthday Celebration
     </footer>
 
     <script>
-        // Simple Tab Switching Logic
         function switchTab(tabId, btn) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
