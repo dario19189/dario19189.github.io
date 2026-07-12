@@ -917,6 +917,58 @@ setInterval(() => {
 }, 1000);
 
 animate();
+    function showSurprise() {
+    document.getElementById("surpriseText").style.display = "block";
+}
+
+// Fireworks
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+function createFirework(x, y) {
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 6 + 2,
+            life: 100
+        });
+    }
+}
+
+function animateFireworks() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((p, index) => {
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed;
+        p.life--;
+
+        ctx.fillStyle = "white";
+        ctx.fillRect(p.x, p.y, 3, 3);
+
+        if (p.life <= 0) {
+            particles.splice(index, 1);
+        }
+    });
+
+    requestAnimationFrame(animateFireworks);
+}
+
+setInterval(() => {
+    createFirework(
+        Math.random() * canvas.width,
+        Math.random() * (canvas.height / 2)
+    );
+}, 1000);
+
+animateFireworks();
 </script>
 <audio id="birthdayMusic" controls>
     <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
@@ -931,5 +983,15 @@ animate();
 <div id="surpriseText">
     You are one of the most precious people in my life ❤️
 </div> 
+    <canvas id="fireworks"></canvas>
+
+<button onclick="showSurprise()" class="surprise-btn">
+    🎁 Click for a Surprise
+</button>
+
+<div id="surpriseText">
+    You are one of the most precious people in my life ❤️
+</div>
+ 
 </body>
 </html>
