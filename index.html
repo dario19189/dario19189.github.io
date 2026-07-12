@@ -55,7 +55,6 @@ nav button {
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
-  transition: all 0.3s ease;
 }
 
 nav button.active {
@@ -122,7 +121,7 @@ nav button.active {
 }
 
 .countdown-box .num {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.1;
 }
@@ -146,7 +145,6 @@ nav button.active {
   line-height: 1.4;
 }
 
-/* Redesigned Responsive Welcome Card Layout */
 .welcome-card {
   background: #fff5f8;
   color: #4a0040;
@@ -164,13 +162,12 @@ nav button.active {
 }
 
 .photo-frame {
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #ff9ebb;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   background-color: #e2e2e2;
 }
 
@@ -220,14 +217,12 @@ nav button.active {
   margin-top: 0;
 }
 
-/* Automatic Desktop Alignment Adjustment */
 @media (min-width: 500px) {
   .welcome-card {
     flex-direction: row;
     text-align: left;
     padding: 25px;
   }
-  .welcome-title { text-align: left; }
 }
 </style>
 </head>
@@ -259,22 +254,22 @@ nav button.active {
   <div class="countdown-grid">
     <div class="countdown-box box-days">
       <div class="box-icon">📅</div>
-      <div class="num" id="days">00</div>
+      <div class="num" id="days">--</div>
       <div class="label">Days</div>
     </div>
     <div class="countdown-box box-hours">
       <div class="box-icon">🕒</div>
-      <div class="num" id="hours">00</div>
+      <div class="num" id="hours">--</div>
       <div class="label">Hours</div>
     </div>
     <div class="countdown-box box-mins">
       <div class="box-icon">⏱️</div>
-      <div class="num" id="mins">00</div>
+      <div class="num" id="mins">--</div>
       <div class="label">Minutes</div>
     </div>
     <div class="countdown-box box-secs">
       <div class="box-icon">🎂</div>
-      <div class="num" id="secs">00</div>
+      <div class="num" id="secs">--</div>
       <div class="label">Seconds</div>
     </div>
   </div>
@@ -327,34 +322,33 @@ function showTab(id, btn) {
   btn.classList.add('active');
 }
 
-function updateCountdown() {
-  try {
-    const targetDate = new Date(2027, 4, 6, 0, 0, 0).getTime();
-    const difference = targetDate - Date.now();
-    
-    if (difference <= 0) {
-      document.getElementById('days').textContent = '00';
-      document.getElementById('hours').textContent = '00';
-      document.getElementById('mins').textContent = '00';
-      document.getElementById('secs').textContent = '00';
-      return;
-    }
-    
-    const d = Math.floor(difference / 86400000);
-    const h = Math.floor((difference % 86400000) / 3600000);
-    const m = Math.floor((difference % 3600000) / 60000);
-    const s = Math.floor((difference % 60000) / 1000);
+// Fixed ISO String target parsing to enforce error-free calculation across devices
+const targetDate = new Date("2027-05-06T00:00:00").getTime();
 
-    document.getElementById('days').textContent = String(d).padStart(2, '0');
-    document.getElementById('hours').textContent = String(h).padStart(2, '0');
-    document.getElementById('mins').textContent = String(m).padStart(2, '0');
-    document.getElementById('secs').textContent = String(s).padStart(2, '0');
-  } catch (error) {
-    console.error("Timer running issue fixed:", error);
+function updateCountdown() {
+  const now = new Date().getTime();
+  const difference = targetDate - now;
+  
+  if (difference <= 0) {
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('mins').textContent = '00';
+    document.getElementById('secs').textContent = '00';
+    return;
   }
+  
+  const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = String(d).padStart(2, '0');
+  document.getElementById('hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('secs').textContent = String(s).padStart(2, '0');
 }
 
-// Start running countdown cleanly
+// Fire immediately and set loop
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
