@@ -1,1043 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday Belsha Akka ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-
-background:linear-gradient(-45deg,#ff416c,#ff4b2b,#ffcc70,#4facfe,#7b2ff7,#00f2fe);
-
-background-size:600% 600%;
-
-animation:bg 18s ease infinite;
-
-overflow-x:hidden;
-
-color:white;
-
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#ff758c,#ff7eb3,#65d6ce,#845ec2);
+    background-size:400% 400%;
+    animation:bg 12s infinite alternate;
+    color:white;
+    text-align:center;
 }
 
 @keyframes bg{
-
-0%{background-position:0% 50%;}
-
-50%{background-position:100% 50%;}
-
-100%{background-position:0% 50%;}
-
+    0%{background-position:left;}
+    100%{background-position:right;}
 }
 
-body::before{
 
-content:"";
-
-position:fixed;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:100%;
-
-background:
-radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 35%),
-radial-gradient(circle at 80% 30%,rgba(255,255,255,.14),transparent 35%),
-radial-gradient(circle at 50% 90%,rgba(255,255,255,.15),transparent 35%);
-
-animation:moveLight 12s linear infinite;
-
-z-index:-2;
-
+.container{
+    padding:30px 15px;
 }
 
-@keyframes moveLight{
 
-0%{transform:translateY(0);}
-50%{transform:translateY(-40px);}
-100%{transform:translateY(0);}
-
+h1{
+    font-size:45px;
+    margin-top:20px;
+    text-shadow:0 0 20px white;
 }
 
-header{
 
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-padding:18px 8%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:rgba(255,255,255,.12);
-
-backdrop-filter:blur(20px);
-
-z-index:1000;
-
+h2{
+    margin-top:20px;
+    font-size:25px;
 }
 
-.logo{
 
-font-size:30px;
-
-font-weight:800;
-
-color:white;
-
+.message{
+    margin:25px auto;
+    max-width:700px;
+    font-size:20px;
+    line-height:1.6;
+    background:rgba(255,255,255,0.15);
+    padding:20px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
 }
 
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-margin-left:25px;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:yellow;
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:140px 30px 80px;
-
-text-align:center;
-
-}
-
-.hero-card{
-
-max-width:900px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(20px);
-
-padding:60px;
-
-border-radius:35px;
-
-box-shadow:0 15px 45px rgba(0,0,0,.3);
-
-}
-
-.hero-card h3{
-
-font-size:22px;
-
-letter-spacing:2px;
-
-margin-bottom:20px;
-
-color:#ffe600;
-
-}
-
-.hero-card h1{
-
-font-size:72px;
-
-line-height:1.2;
-
-}
-
-.hero-card h1 span{
-
-display:block;
-
-font-size:82px;
-
-color:#ffe600;
-
-text-shadow:0 0 20px gold;
-
-margin-top:10px;
-
-}
-
-.hero-card p{
-
-font-size:22px;
-
-line-height:1.9;
-
-margin:35px 0;
-
-}
-
-.button{
-
-display:inline-block;
-
-padding:18px 40px;
-
-border-radius:50px;
-
-background:linear-gradient(45deg,#ff0080,#ff8c00);
-
-color:white;
-
-text-decoration:none;
-
-font-size:20px;
-
-font-weight:bold;
-
-transition:.4s;
-
-}
-
-.button:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 25px white;
-
-}
-
-section{
-
-padding:100px 8%;
-
-}
 
 #countdown{
-
-text-align:center;
-
+    margin:30px auto;
+    font-size:35px;
+    font-weight:bold;
+    background:rgba(0,0,0,0.2);
+    padding:20px;
+    border-radius:20px;
+    width:fit-content;
 }
 
-#countdown h2{
 
-font-size:48px;
-
-margin-bottom:45px;
-
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-top:40px;
 }
 
-.timer{
 
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 20px white;
+    transition:.5s;
 }
 
-.box{
 
-width:170px;
-
-padding:35px 20px;
-
-border-radius:25px;
-
-background:linear-gradient(135deg,#ff512f,#dd2476);
-
-box-shadow:0 0 25px rgba(255,255,255,.3);
-
+.gallery img:hover{
+    transform:scale(1.05);
 }
 
-.box:nth-child(2){
 
-background:linear-gradient(135deg,#36d1dc,#5b86e5);
 
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff3366;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    margin:20px;
 }
 
-.box:nth-child(3){
 
-background:linear-gradient(135deg,#00c9ff,#92fe9d);
-
+.heart{
+    position:fixed;
+    top:-10px;
+    color:#ffb6c1;
+    font-size:25px;
+    animation:fall linear infinite;
+    z-index:-1;
 }
 
-.box:nth-child(4){
 
-background:linear-gradient(135deg,#f7971e,#ffd200);
-
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
 }
 
-.box h1{
 
-font-size:58px;
 
+.firework{
+    position:fixed;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:white;
+    animation:explode 1s infinite;
 }
 
-.box p{
 
-font-size:20px;
+@keyframes explode{
+    from{
+        box-shadow:
+        0 0 #fff,
+        0 0 #fff,
+        0 0 #fff;
+    }
 
-margin-top:10px;
-
-font-weight:600;
-
-}
-#fireworks {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.surprise-btn {
-    padding: 15px 25px;
-    border-radius: 30px;
-    border: none;
-    background: #ff4081;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
+    to{
+        box-shadow:
+        80px -80px #ff0,
+        -80px -80px #f0f,
+        80px 80px #0ff,
+        -80px 80px #fff;
+        opacity:0;
+    }
 }
 
-#surpriseText {
-    display: none;
-    font-size: 25px;
-    margin-top: 20px;
-    animation: pop 1s;
-}
 
-@keyframes pop {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-}
 </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="logo">
-
-❤️ Belsha Akka
-
-</div>
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#countdown">Countdown</a>
-
-<a href="#gallery">Gallery</a>
-
-<a href="#memory">Memory</a>
-
-<a href="#letter">Letter</a>
-
-</nav>
-
-</header>
-
-<section id="home" class="hero">
-
-<div class="hero-card">
-
-<h3>Made Especially For You</h3>
-
-<h1>
-
-Happy Birthday
-
-<span>Belsha Akka 🎂</span>
-
-</h1>
-
-<p>
-
-You came into my life as a stranger...
-but today you're one of the greatest blessings I have ever received.
-This website is made with love, memories and countless prayers just for you.
-
-❤️
-
-</p>
-
-<a href="#countdown" class="button">
-
-Start Celebration 🎉
-
-</a>
-
-</div>
-
-</section>
-
-<section id="countdown">
-
-<h2>
-
-Countdown To May 6, 2027
-
-</h2>
-
-<div class="timer">
-
-<div class="box">
-
-<h1 id="days">000</h1>
-
-<p>Days</p>
-
-</div>
-
-<div class="box">
-
-<h1 id="hours">00</h1>
-
-<p>Hours</p>
-
-</div>
-
-<div class="box">
-
-<h1 id="minutes">00</h1>
-
-<p>Minutes</p>
-
-</div>
-
-<div class="box">
-
-<h1 id="seconds">00</h1>
-
-<p>Seconds</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ===========================
-     GALLERY SECTION
-=========================== -->
-
-<section id="gallery">
-
-<h2 style="text-align:center;font-size:48px;margin-bottom:50px;">
-
-📸 Beautiful Memories
-
-</h2>
-
-<div style="display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;">
-
-<div style="background:rgba(255,255,255,.15);
-backdrop-filter:blur(18px);
-padding:20px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 15px 30px rgba(0,0,0,.25);">
-
-<img src="https://via.placeholder.com/400x500"
-style="width:100%;
-border-radius:20px;">
-
-<h3 style="margin-top:20px;">
-
-Your Beautiful Smile ❤️
-
-</h3>
-
-<p>
-
-One smile from you can brighten
-an entire day.
-
-</p>
-
-</div>
-
-<div style="background:rgba(255,255,255,.15);
-backdrop-filter:blur(18px);
-padding:20px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 15px 30px rgba(0,0,0,.25);">
-
-<img src="https://via.placeholder.com/400x500"
-style="width:100%;
-border-radius:20px;">
-
-<h3 style="margin-top:20px;">
-
-Forever Amazing ✨
-
-</h3>
-
-<p>
-
-No matter where life takes you,
-always keep smiling.
-
-</p>
-
-</div>
-
-<div style="background:rgba(255,255,255,.15);
-backdrop-filter:blur(18px);
-padding:20px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 15px 30px rgba(0,0,0,.25);">
-
-<img src="https://via.placeholder.com/400x500"
-style="width:100%;
-border-radius:20px;">
-
-<h3 style="margin-top:20px;">
-
-Best Sister 💖
-
-</h3>
-
-<p>
-
-Thank you for entering my life
-and making it more beautiful.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-     MEMORY LANE
-=========================== -->
-
-<section id="memory">
-
-<h2 style="text-align:center;
-font-size:48px;
-margin-bottom:50px;">
-
-🕰️ Memory Lane
-
-</h2>
-
-<div style="max-width:900px;
-margin:auto;">
-   <div style="background:rgba(255,255,255,.15);
-padding:35px;
-border-left:8px solid gold;
-border-radius:25px;
-margin-bottom:30px;
-backdrop-filter:blur(20px);">
-
-<h3>
-
-🌸 The Day We Met
-
-</h3>
-
-<p style="margin-top:15px;
-font-size:20px;
-line-height:1.8;">
-
-Life introduced us as strangers,
-but my heart accepted you
-as my own sister.
-
-</p>
-
-</div>
-
-<div style="background:rgba(255,255,255,.15);
-padding:35px;
-border-left:8px solid #00e5ff;
-border-radius:25px;
-margin-bottom:30px;
-backdrop-filter:blur(20px);">
-
-<h3>
-💖 A Precious Bond
-
-</h3>
-
-<p style="margin-top:15px;
-font-size:20px;
-line-height:1.8;">
-
-Blood never decided
-our relationship.
-
-Love,
-care,
-trust
-and understanding did.
-
-</p>
-
-</div>
-
-<div style="background:rgba(255,255,255,.15);
-padding:35px;
-border-left:8px solid hotpink;
-border-radius:25px;
-margin-bottom:3
-No matter what happens,
-
-you'll always have
-a younger brother
-who is praying for you,
-supporting you,
-and cheering for you.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ===========================
-     LETTER SECTION
-=========================== -->
-
-<section id="letter">
-
-<h2 style="text-align:center;
-font-size:48px;
-margin-bottom:50px;">
-
-💌 An Open Letter To My Dearest Sister
-
-</h2>
-
-<div style="
-max-width:900px;
-margin:auto;
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(20px);
-padding:45px;
-border-radius:30px;
-box-shadow:0 15px 40px rgba(0,0,0,.3);
-line-height:2;
-font-size:21px;
-">
-
-<p>
-
-Dear Belsha Akka,
-
-</p>
-
-<br>
-
-<p>
-
-Some people enter our lives for a moment,
-but a very few stay forever inside our hearts.
-
-You are one of those rare people.
-
-</p>
-
-<br>
-
-<p>
-
-We may not share the same blood,
-yet I proudly call you my sister.
-
-Thank you for your kindness,
-your smile,
-your care,
-and for becoming someone so important in my life.
-
-</p>
-
-<br>
-
-<p>
-
-Whenever you feel sad,
-
-remember this...
-
-No matter how far life takes us,
-
-you'll always have a younger brother
-who is praying for your happiness.
-
-</p>
-
-<br>
-
-<p>
-
-May every dream you have
-come true.
-
-May God bless you
-with peace,
-joy,
-good health,
-and endless happiness.
-
-</p>
-
-<br>
-
-<p style="text-align:center;
-font-size:28px;
-font-weight:bold;
-color:gold;">
-
-❤️ Happy Birthday Belsha Akka ❤️
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ===========================
-     MUSIC BUTTON
-=========================== -->
-
-<section style="text-align:center;">
-
-<h2>
-
-🎵 Birthday Music
-
-</h2>
-
-<br>
-
-<button onclick="toggleMusic()"
-style="
-padding:18px 35px;
-font-size:20px;
-border:none;
-border-radius:50px;
-background:linear-gradient(45deg,#ff0080,#ff8c00);
-color:white;
-cursor:pointer;
-">
-
-▶ Play / Pause Music
-
-</button>
-
-<audio id="music" loop>
-
-<source src="birthday.mp3" type="audio/mpeg">
-
+<audio id="music" autoplay loop>
+<source src="birthday-song.mp3" type="audio/mpeg">
 </audio>
 
-</section>
 
-<footer style="
-padding:60px;
-text-align:center;
-font-size:22px;
-">
+<button onclick="playMusic()">🎵 Start Birthday Song</button>
 
-Made with ❤️
-especially for
-Belsha Akka
+
+
+<div class="container">
+
+<h1>🎂 Happy Birthday Belsha Akka ❤️</h1>
+
+
+<h2>To the most special person who came into my life ✨</h2>
+
+
+<div id="countdown">
+Loading countdown...
+</div>
+
+
+
+<div class="message">
+
+Dear Belsha Akka ❤️,
 
 <br><br>
 
-© 2027
+You are not my sister by blood,
+but you became someone who is closer than family.
 
-</footer>
+Your smile, your care and your presence make my life more beautiful.
+
+May this birthday bring endless happiness,
+success, peace and beautiful memories.
+
+Always keep smiling akka ❤️
+
+<br><br>
+
+With lots of love ❤️
+
+</div>
+
+
+
+
+<h2>📸 Beautiful Memories</h2>
+
+
+<div class="gallery">
+
+<img src="pic1.jpg">
+<img src="pic2.jpg">
+<img src="pic3.jpg">
+<img src="pic4.jpg">
+<img src="pic5.jpg">
+<img src="pic6.jpg">
+
+</div>
+
+
+</div>
+
+
 
 <script>
 
-const targetDate =
-new Date("May 6, 2027 00:00:00").getTime();
 
-const days =
-document.getElementById("days");
+// Countdown
 
-const hours =
-document.getElementById("hours");
+let birthday = new Date("May 6, 2027 00:00:00").getTime();
 
-const minutes =
-document.getElementById("minutes");
-
-const seconds =
-document.getElementById("seconds");
 
 setInterval(function(){
 
-const now =
-new Date().getTime();
+let now = new Date().getTime();
 
-const distance =
-targetDate-now;
-   if(distance<0){
+let distance = birthday-now;
 
-days.innerHTML="000";
 
-hours.innerHTML="00";
+let days=Math.floor(distance/(1000*60*60*24));
 
-minutes.innerHTML="00";
+let hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-seconds.innerHTML="00";
+let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 
-return;
+let seconds=Math.floor((distance%(1000*60))/1000);
 
-}
 
-days.innerHTML=
-Math.floor(distance/(1000*60*60*24));
 
-hours.innerHTML=
-Math.floor((distance%(1000*60*60*24))/
-(1000*60*60));
+document.getElementById("countdown").innerHTML =
+days+" Days ❤️ "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
 
-minutes.innerHTML=
-Math.floor((distance%(1000*60*60))/(1000*60));
-
-seconds.innerHTML=
-Math.floor((distance%(1000*60))/1000);
 
 },1000);
 
-function toggleMusic(){
 
-const music =
-document.getElementById("music");
 
-if(music.paused){
 
-music.play();
+// Music
 
-}else{
+function playMusic(){
 
-music.pause();
+document.getElementById("music").play();
 
 }
 
-}
-function showSurprise() {
-    document.getElementById("surpriseText").style.display = "block";
-}
 
-// Fireworks animation
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-function createFirework(x, y) {
-    for (let i = 0; i < 80; i++) {
-        particles.push({
-            x: x,
-            y: y,
-            angle: Math.random() * Math.PI * 2,
-            speed: Math.random() * 6 + 2,
-            life: 100
-        });
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((p, i) => {
-        p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed;
-        p.life--;
-
-        ctx.fillStyle = "white";
-        ctx.fillRect(p.x, p.y, 3, 3);
-
-        if (p.life <= 0) particles.splice(i, 1);
-    });
-
-    requestAnimationFrame(animate);
-}
-
-setInterval(() => {
-    createFirework(
-        Math.random() * canvas.width,
-        Math.random() * canvas.height / 2
-    );
-}, 1000);
-
-animate();
-    function showSurprise() {
-    document.getElementById("surpriseText").style.display = "block";
-}
-
-// Fireworks
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-function createFirework(x, y) {
-    for (let i = 0; i < 80; i++) {
-        particles.push({
-            x: x,
-            y: y,
-            angle: Math.random() * Math.PI * 2,
-            speed: Math.random() * 6 + 2,
-            life: 100
-        });
-    }
-}
-
-function animateFireworks() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((p, index) => {
-        p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed;
-        p.life--;
-
-        ctx.fillStyle = "white";
-        ctx.fillRect(p.x, p.y, 3, 3);
-
-        if (p.life <= 0) {
-            particles.splice(index, 1);
-        }
-    });
-
-    requestAnimationFrame(animateFireworks);
-}
-
-setInterval(() => {
-    createFirework(
-        Math.random() * canvas.width,
-        Math.random() * (canvas.height / 2)
-    );
-}, 1000);
-
-animateFireworks();
-</script>
-    <audio id="birthdayMusic" controls>
-    <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<canvas id="fireworks"></canvas>
-
-<button onclick="showSurprise()" class="surprise-btn">
-    🎁 Click for a Surprise
-</button>
-
-<div id="surpriseText">
-    You are one of the most precious people in my life ❤️
-</div>
-
-<script>
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-function createFirework(x, y) {
-    for (let i = 0; i < 80; i++) {
-        particles.push({
-            x:x,
-            y:y,
-            angle:Math.random()*Math.PI*2,
-            speed:Math.random()*6+2,
-            life:100
-        });
-    }
-}
-
-function animateFireworks() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    particles.forEach((p,index)=>{
-        p.x += Math.cos(p.angle)*p.speed;
-        p.y += Math.sin(p.angle)*p.speed;
-        p.life--;
-
-        ctx.fillStyle="white";
-        ctx.fillRect(p.x,p.y,3,3);
-
-        if(p.life<=0){
-            particles.splice(index,1);
-        }
-    });
-
-    requestAnimationFrame(animateFireworks);
-}
+// Falling hearts
 
 setInterval(()=>{
-    createFirework(
-        Math.random()*canvas.width,
-        Math.random()*(canvas.height/2)
-    );
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+
+},300);
+
+
+
+
+// Fireworks
+
+setInterval(()=>{
+
+let fire=document.createElement("div");
+
+fire.className="firework";
+
+fire.style.left=Math.random()*100+"vw";
+
+fire.style.top=Math.random()*70+"vh";
+
+
+document.body.appendChild(fire);
+
+
+setTimeout(()=>{
+
+fire.remove();
+
 },1000);
 
-animateFireworks();
 
-function showSurprise(){
-    document.getElementById("surpriseText").style.display="block";
-}
+},700);
+
+
+
 </script>
+
 
 </body>
 </html>
