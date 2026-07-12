@@ -318,7 +318,35 @@ margin-top:10px;
 font-weight:600;
 
 }
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
+}
 
+.surprise-btn {
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4081;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#surpriseText {
+    display: none;
+    font-size: 25px;
+    margin-top: 20px;
+    animation: pop 1s;
+}
+
+@keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
 </style>
 
 </head>
@@ -839,12 +867,69 @@ music.pause();
 }
 
 }
+function showSurprise() {
+    document.getElementById("surpriseText").style.display = "block";
+}
 
+// Fireworks animation
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+function createFirework(x, y) {
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 6 + 2,
+            life: 100
+        });
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((p, i) => {
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed;
+        p.life--;
+
+        ctx.fillStyle = "white";
+        ctx.fillRect(p.x, p.y, 3, 3);
+
+        if (p.life <= 0) particles.splice(i, 1);
+    });
+
+    requestAnimationFrame(animate);
+}
+
+setInterval(() => {
+    createFirework(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height / 2
+    );
+}, 1000);
+
+animate();
 </script>
 <audio id="birthdayMusic" controls>
     <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
-  
+ <canvas id="fireworks"></canvas>
+
+<button onclick="showSurprise()" class="surprise-btn">
+    🎁 Click for a Surprise
+</button>
+
+<div id="surpriseText">
+    You are one of the most precious people in my life ❤️
+</div> 
 </body>
 </html>
