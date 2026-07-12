@@ -69,6 +69,7 @@ nav button.active {
   margin: 0 auto;
 }
 
+/* Restored standard class block state to keep script functionality stable */
 .tab.active {
   display: block;
 }
@@ -207,7 +208,6 @@ nav button.active {
   margin: 0;
 }
 
-/* Timeline Layout Styles */
 .timeline-wrapper {
   margin: 20px auto;
   position: relative;
@@ -287,10 +287,10 @@ nav button.active {
 <header>
   <div class="logo-text">For My Dearest ❤️</div>
   <nav>
-    <button class="active" onclick="showTab('home',this)">Home</button>
-    <button onclick="showTab('gallery',this)">Gallery</button>
-    <button onclick="showTab('memory',this)">Memory</button>
-    <button onclick="showTab('message',this)">Message</button>
+    <button id="btn-home" class="active" onclick="showTab('home',this)">Home</button>
+    <button id="btn-gallery" onclick="showTab('gallery',this)">Gallery</button>
+    <button id="btn-memory" onclick="showTab('memory',this)">Memory</button>
+    <button id="btn-message" onclick="showTab('message',this)">Message</button>
   </nav>
 </header>
 
@@ -311,22 +311,22 @@ nav button.active {
   <div class="countdown-grid">
     <div class="countdown-box box-days">
       <div class="box-icon">📅</div>
-      <div class="num" id="days">--</div>
+      <div class="num" id="days">00</div>
       <div class="label">Days</div>
     </div>
     <div class="countdown-box box-hours">
       <div class="box-icon">🕒</div>
-      <div class="num" id="hours">--</div>
+      <div class="num" id="hours">00</div>
       <div class="label">Hours</div>
     </div>
     <div class="countdown-box box-mins">
       <div class="box-icon">⏱️</div>
-      <div class="num" id="mins">--</div>
+      <div class="num" id="mins">00</div>
       <div class="label">Minutes</div>
     </div>
     <div class="countdown-box box-secs">
       <div class="box-icon">🎂</div>
-      <div class="num" id="secs">--</div>
+      <div class="num" id="secs">00</div>
       <div class="label">Seconds</div>
     </div>
   </div>
