@@ -141,65 +141,69 @@ nav button.active {
   background: rgba(0, 0, 0, 0.3);
   padding: 10px 12px;
   border-radius: 20px;
-  margin-top: 15px;
+  margin: 15px auto 30px auto;
+  max-width: 90%;
   line-height: 1.4;
 }
 
+/* Re-engineered Welcome Container to block overlapping elements */
 .welcome-card {
   background: #fff5f8;
   color: #4a0040;
-  margin: 30px auto 10px auto;
-  padding: 25px 20px;
+  margin: 20px auto 10px auto;
+  padding: 30px 20px;
   border-radius: 24px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  display: flex !important;
-  flex-direction: column !important; 
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 20px !important;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 20px;
   text-align: center;
   border: 4px solid #ffffff;
   box-sizing: border-box;
 }
 
 .photo-frame {
-  width: 110px; /* Made slightly smaller for mobile clearance */
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
+  position: relative;
   overflow: hidden;
-  border: 4px solid #ff9ebb;
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border: 5px solid #ff9ebb;
   background-color: #e2e2e2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: block;
 }
 
 .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .welcome-content {
   width: 100%;
+  display: block;
 }
 
 .welcome-title {
   font-family: 'Grand Hotel', cursive;
-  font-size: 34px;
+  font-size: 36px;
   color: #d1216b;
-  margin: 0 0 8px 0;
+  margin: 10px 0;
 }
 
 .welcome-text {
   font-size: 13px;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
   color: #5c3552;
 }
 
 .welcome-signature {
   font-family: 'Caveat', cursive;
-  font-size: 22px;
+  font-size: 24px;
   color: #d1216b;
   margin: 0;
 }
@@ -223,7 +227,7 @@ nav button.active {
   .welcome-card {
     flex-direction: row;
     text-align: left;
-    padding: 25px;
+    padding: 30px;
   }
 }
 </style>
@@ -280,14 +284,13 @@ nav button.active {
     ✨ Mark your calendar: <strong>May 6, 2027</strong> – A day to celebrate the most wonderful person! 🌸
   </div>
 
-    <!-- FIXED WELCOME CARD ENTRY -->
   <div class="welcome-card">
     <div class="photo-frame">
-      <img src="https://unsplash.com" alt="Belsha Akka">
+      <!-- Clean, isolated placeholder link image -->
+      <img src="https://unsplash.com" alt="profile">
     </div>
     <div class="welcome-content">
-      <!-- Title moved here so text spacing drops down correctly below the circle -->
-      <h2 class="welcome-title" style="margin-top: 10px;">Welcome! 💕</h2>
+      <h2 class="welcome-title">Welcome! 💕</h2>
       <p class="welcome-text">
         This little corner of the internet is dedicated to someone who means the world to me. 
         You are not just my sister, you are my guide, my support, and my forever friend. 💖
@@ -295,6 +298,7 @@ nav button.active {
       <p class="welcome-signature">Thank you for being you, always! ✨</p>
     </div>
   </div>
+</div>
 
 <div id="gallery" class="tab">
   <div class="standard-card">
@@ -325,7 +329,6 @@ function showTab(id, btn) {
   btn.classList.add('active');
 }
 
-// Fixed ISO String target parsing to enforce error-free calculation across devices
 const targetDate = new Date("2027-05-06T00:00:00").getTime();
 
 function updateCountdown() {
@@ -351,7 +354,6 @@ function updateCountdown() {
   document.getElementById('secs').textContent = String(s).padStart(2, '0');
 }
 
-// Fire immediately and set loop
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
