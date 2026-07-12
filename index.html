@@ -4,77 +4,410 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday, Belsha Akka!</title>
+<!-- Beautiful Cursive and Modern Fonts -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Caveat:wght@700&family=Grand+Hotel&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome for Header & Countdown Icons -->
+<link rel="stylesheet" href="https://cloudflare.com">
+
 <style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#ffe4e6,#fef3c7,#e0e7ff);
-  text-align:center;
+/* Base Reset & Magical Background Styling */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #7a1f8d 0%, #3a005c 50%, #1a0033 100%);
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 50px;
 }
-header{padding:20px;background:white;position:sticky;top:0}
-nav button{margin:5px;padding:10px 18px;border:none;border-radius:20px;cursor:pointer}
-.active{background:#db2777;color:#fff}
-.tab{display:none;padding:20px}
-.tab.active{display:block}
-.card{background:#fff;margin:20px auto;padding:20px;max-width:700px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
-.grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.box{background:#f8f8f8;padding:15px;border-radius:15px;min-width:80px}
-.num{font-size:28px;font-weight:bold}
+
+/* Optional Decorative Elements like Confetti/Balloons Sparkle Effect */
+body::before {
+  content: "✨ 🎉 🎈 🌟 💖 ✨";
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-size: 24px;
+  opacity: 0.15;
+  pointer-events: none;
+  width: 90%;
+  word-spacing: 40px;
+  line-height: 3;
+}
+
+/* Floating Premium Navigation Bar */
+header {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffb7df;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav button {
+  background: transparent;
+  color: #ffffff;
+  margin: 0;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+nav button i {
+  font-size: 14px;
+}
+
+nav button.active {
+  background: #db2777;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.4);
+}
+
+/* Music Trigger Button Placeholder Style */
+.music-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Content Container Tabs */
+.tab {
+  display: none;
+  padding: 20px 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings & Subheadings Styling */
+.main-title {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 56px;
+  color: #ffe675;
+  margin: 20px 0 10px 0;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 230, 117, 0.3);
+  font-weight: normal;
+}
+
+.sub-greeting {
+  font-size: 15px;
+  color: #ffdaea;
+  margin: 5px 20px 15px 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffe675;
+  margin: 25px 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Vibrant Grid Layout for Countdown Cards */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.countdown-box {
+  padding: 15px 5px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.countdown-box i {
+  font-size: 20px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.countdown-box .num {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.countdown-box .label {
+  font-size: 11px;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+/* Individual Custom Colors for the 4 Countdown Cards */
+.box-days { background: linear-gradient(135deg, #ff5e7e, #ff2a55); }
+.box-hours { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.box-mins { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.box-secs { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+/* Footer Date Banner Card */
+.date-banner {
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Elegant Welcome Card Component */
+.welcome-card {
+  background: #fff5f8;
+  color: #4a0040;
+  margin: 30px auto 10px auto;
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  border: 4px solid #ffffff;
+}
+
+/* Circle Photo Framework Container */
+.photo-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ff9ebb;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background-color: #e0e0e0;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.welcome-content {
+  flex-grow: 1;
+}
+
+.welcome-title {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 36px;
+  color: #d1216b;
+  margin: 0 0 8px 0;
+  line-height: 1;
+}
+
+.welcome-text {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+  color: #5c3552;
+}
+
+.welcome-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: #d1216b;
+  margin: 0;
+}
+
+/* Standard Interior Cards for Secondary Pages */
+.standard-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+
+.standard-card h2 {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 42px;
+  color: #ffe675;
+  margin-top: 0;
+}
+
+/* Responsive adjustment for small phones */
+@media (max-width: 480px) {
+  .welcome-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .countdown-box .num {
+    font-size: 24px;
+  }
+}
 </style>
 </head>
 <body>
+
+<!-- Modern Navigation Sticky Header -->
 <header>
-<h1>🎉 Happy Birthday, Belsha Akka! 🎉</h1>
-<nav>
-<button class="active" onclick="showTab('home',this)">Home</button>
-<button onclick="showTab('gallery',this)">Gallery</button>
-<button onclick="showTab('memory',this)">Memory Lane</button>
-<button onclick="showTab('message',this)">Message</button>
-</nav>
+  <div class="logo-text">For My Dearest ❤️</div>
+  <nav>
+    <button class="active" onclick="showTab('home',this)"><i class="fa-solid fa-house"></i>Home</button>
+    <button onclick="showTab('gallery',this)"><i class="fa-solid fa-image"></i>Gallery</button>
+    <button onclick="showTab('memory',this)"><i class="fa-solid fa-clock-rotate-left"></i>Memory</button>
+    <button onclick="showTab('message',this)"><i class="fa-solid fa-envelope"></i>Message</button>
+  </nav>
+  <button class="music-btn"><i class="fa-solid fa-music"></i></button>
 </header>
 
+<!-- HOME PAGE TAB -->
 <div id="home" class="tab active">
-<div class="card">
-<h2>Countdown to May 6, 2027</h2>
-<div class="grid">
-<div class="box"><div class="num" id="days">00</div>Days</div>
-<div class="box"><div class="num" id="hours">00</div>Hours</div>
-<div class="box"><div class="num" id="mins">00</div>Minutes</div>
-<div class="box"><div class="num" id="secs">00</div>Seconds</div>
-</div>
-</div>
+  <h1 class="main-title">Happy Birthday, Belsha Akka!</h1>
+  
+  <p class="sub-greeting">
+    Today is all about you! 🌟<br>
+    You are amazing, beautiful and so special!<br>
+    Can't wait to celebrate your big day! 💝
+  </p>
+
+  <div class="section-label">
+    💖 COUNTDOWN TO YOUR SPECIAL DAY 💖
+  </div>
+
+  <!-- Colorful Premium Countdown Timer Cards -->
+  <div class="countdown-grid">
+    <div class="countdown-box box-days">
+      <i class="fa-regular fa-calendar-days"></i>
+      <div class="num" id="days">00</div>
+      <div class="label">Days</div>
+    </div>
+    <div class="countdown-box box-hours">
+      <i class="fa-regular fa-clock"></i>
+      <div class="num" id="hours">00</div>
+      <div class="label">Hours</div>
+    </div>
+    <div class="countdown-box box-mins">
+      <i class="fa-solid fa-stopwatch"></i>
+      <div class="num" id="mins">00</div>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="countdown-box box-secs">
+      <i class="fa-solid fa-cake-candles"></i>
+      <div class="num" id="secs">00</div>
+      <div class="label">Seconds</div>
+    </div>
+  </div>
+
+  <div class="date-banner">
+    ✨ Mark your calendar: <strong>May 6, 2027</strong> – A day to celebrate the most wonderful person! 🌸
+  </div>
+
+  <!-- Featured Beautiful Welcome Card -->
+  <div class="welcome-card">
+    <div class="photo-frame">
+      <!-- REPLACE THE SRC LINK BELOW WITH HER ACTUAL PHOTO LATER -->
+      <img src="https://unsplash.com" alt="Belsha Akka">
+    </div>
+    <div class="welcome-content">
+      <h2 class="welcome-title">Welcome! 💕</h2>
+      <p class="welcome-text">
+        This little corner of the internet is dedicated to someone who means the world to me. 
+        You are not just my sister, you are my guide, my support, and my forever friend. 💖
+      </p>
+      <p class="welcome-signature">Thank you for being you, always! ✨</p>
+    </div>
+  </div>
 </div>
 
+<!-- GALLERY TAB -->
 <div id="gallery" class="tab">
-<div class="card"><h2>Gallery</h2><p>Add your photos here.</p></div>
+  <div class="standard-card">
+    <h2>Photo Gallery</h2>
+    <p>This layout is fully ready. Paste photo elements or grids inside this section next.</p>
+  </div>
 </div>
 
+<!-- MEMORY LANE TAB -->
 <div id="memory" class="tab">
-<div class="card"><h2>Memory Lane</h2><p>You became my sister by heart, not by blood. ❤️</p></div>
+  <div class="standard-card">
+    <h2>Memory Lane</h2>
+    <p>You became my sister by heart, not by blood. ❤️</p>
+  </div>
 </div>
 
+<!-- MESSAGE TAB -->
 <div id="message" class="tab">
-<div class="card"><h2>Birthday Message</h2><p>Happy Birthday, Belsha Akka! Wishing you endless joy and success.</p></div>
+  <div class="standard-card">
+    <h2>Birthday Messages</h2>
+    <p>Happy Birthday, Belsha Akka! Wishing you endless joy and success.</p>
+  </div>
 </div>
 
 <script>
-function showTab(id,btn){
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-btn.classList.add('active');
+// Dynamic Single-Page Tab Switching Function
+function showTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
 }
-const target=new Date(2027,4,6,0,0,0).getTime();
-function update(){
-const d=target-Date.now();
-if(d<=0){['days','hours','mins','secs'].forEach(i=>document.getElementById(i).textContent='00');return;}
-document.getElementById('days').textContent=Math.floor(d/86400000);
-document.getElementById('hours').textContent=Math.floor((d%86400000)/3600000);
-document.getElementById('mins').textContent=Math.floor((d%3600000)/60000);
-document.getElementById('secs').textContent=Math.floor((d%60000)/1000);
-}
-update();
-setInterval(update,1000);
-</script>
-</body>
-</html>
+
+// Countdown Calculation Engine
+const target = new Date(2027, 4, 6, 0, 0, 0).getTime();
+
+function update() {
+  const d = target - Date.now();
+  if (d <= 0) {
+    ['days', 'hours', 'mins', 'secs'].forEach(i => document.getElementById(i).textContent = '00');
+    return;
+  }  
