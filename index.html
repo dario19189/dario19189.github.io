@@ -1,1 +1,80 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Happy Birthday</title></head><body><h1>Happy Birthday, Belsha Akka!</h1><div id='days'></div><script>const t=new Date(2027,4,6).getTime();function u(){let d=t-Date.now();document.getElementById('days').innerHTML=Math.floor(d/86400000)+' days remaining';}u();setInterval(u,1000);</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Belsha Akka!</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffe4e6,#fef3c7,#e0e7ff);
+  text-align:center;
+}
+header{padding:20px;background:white;position:sticky;top:0}
+nav button{margin:5px;padding:10px 18px;border:none;border-radius:20px;cursor:pointer}
+.active{background:#db2777;color:#fff}
+.tab{display:none;padding:20px}
+.tab.active{display:block}
+.card{background:#fff;margin:20px auto;padding:20px;max-width:700px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.box{background:#f8f8f8;padding:15px;border-radius:15px;min-width:80px}
+.num{font-size:28px;font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<h1>🎉 Happy Birthday, Belsha Akka! 🎉</h1>
+<nav>
+<button class="active" onclick="showTab('home',this)">Home</button>
+<button onclick="showTab('gallery',this)">Gallery</button>
+<button onclick="showTab('memory',this)">Memory Lane</button>
+<button onclick="showTab('message',this)">Message</button>
+</nav>
+</header>
+
+<div id="home" class="tab active">
+<div class="card">
+<h2>Countdown to May 6, 2027</h2>
+<div class="grid">
+<div class="box"><div class="num" id="days">00</div>Days</div>
+<div class="box"><div class="num" id="hours">00</div>Hours</div>
+<div class="box"><div class="num" id="mins">00</div>Minutes</div>
+<div class="box"><div class="num" id="secs">00</div>Seconds</div>
+</div>
+</div>
+</div>
+
+<div id="gallery" class="tab">
+<div class="card"><h2>Gallery</h2><p>Add your photos here.</p></div>
+</div>
+
+<div id="memory" class="tab">
+<div class="card"><h2>Memory Lane</h2><p>You became my sister by heart, not by blood. ❤️</p></div>
+</div>
+
+<div id="message" class="tab">
+<div class="card"><h2>Birthday Message</h2><p>Happy Birthday, Belsha Akka! Wishing you endless joy and success.</p></div>
+</div>
+
+<script>
+function showTab(id,btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+btn.classList.add('active');
+}
+const target=new Date(2027,4,6,0,0,0).getTime();
+function update(){
+const d=target-Date.now();
+if(d<=0){['days','hours','mins','secs'].forEach(i=>document.getElementById(i).textContent='00');return;}
+document.getElementById('days').textContent=Math.floor(d/86400000);
+document.getElementById('hours').textContent=Math.floor((d%86400000)/3600000);
+document.getElementById('mins').textContent=Math.floor((d%3600000)/60000);
+document.getElementById('secs').textContent=Math.floor((d%60000)/1000);
+}
+update();
+setInterval(update,1000);
+</script>
+</body>
+</html>
