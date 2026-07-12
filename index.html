@@ -352,8 +352,33 @@ nav button.active {
 <div id="gallery" class="tab">
   <div class="standard-card">
     <h2>Photo Gallery 📸</h2>
-    <p style="color: #ffdaea; font-size: 14px; margin-bottom: 25px;">A collection of beautiful smiles and happy moments.</p>
+    <p style="color: #ffdaea; font-size: 13px; margin: 0 0 20px 0;">A collection of beautiful smiles and happy moments.</p>
     
+    <!-- Forced side-by-side flex layout for mobile screens -->
+    <div style="display: flex !important; flex-direction: row !important; justify-content: center !important; align-items: center !important; gap: 12px !important; flex-wrap: wrap !important; margin: 25px auto 10px auto; width: 100%;">
+      
+      <!-- Polaroid Card 1 -->
+      <div style="background: #ffffff; padding: 10px 10px 15px 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); width: 130px; box-sizing: border-box;">
+        <div style="width: 100%; aspect-ratio: 1 / 1; background-color: #ffd1dc; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #ffffff;">✨</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 16px; color: #4a0040; margin-top: 10px; text-align: center; font-weight: bold;">Beautiful Smile</div>
+      </div>
+      
+      <!-- Polaroid Card 2 -->
+      <div style="background: #ffffff; padding: 10px 10px 15px 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); width: 130px; box-sizing: border-box;">
+        <div style="width: 100%; aspect-ratio: 1 / 1; background-color: #ffd1dc; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #ffffff;">💖</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 16px; color: #4a0040; margin-top: 10px; text-align: center; font-weight: bold;">Happy Memories</div>
+      </div>
+      
+      <!-- Polaroid Card 3 -->
+      <div style="background: #ffffff; padding: 10px 10px 15px 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); width: 130px; box-sizing: border-box;">
+        <div style="width: 100%; aspect-ratio: 1 / 1; background-color: #ffd1dc; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #ffffff;">🌟</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 16px; color: #4a0040; margin-top: 10px; text-align: center; font-weight: bold;">Best Sister</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
     <div class="gallery-grid">
       <!-- Photo Card 1 -->
       <div class="polaroid">
