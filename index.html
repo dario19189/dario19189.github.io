@@ -230,6 +230,51 @@ nav button.active {
     padding: 30px;
   }
 }
+  /* Gallery Layout & Polaroid Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.polaroid {
+  background: #ffffff;
+  padding: 10px 10px 15px 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(1deg);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(-1.5deg);
+}
+
+.polaroid:hover {
+  transform: scale(1.03) rotate(0deg);
+}
+
+.polaroid-img-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #ffd1dc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #4a0040;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
 </style>
 </head>
 <body>
