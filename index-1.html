@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shilpa Akka 🪔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --plum-deep:#22102f;
+  --plum:#2e1746;
+  --gold:#f2b632;
+  --marigold:#ff8c3c;
+  --cream:#fff3df;
+  --teal:#12726b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--plum-deep);
+  color:var(--cream);
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+h1,h2,h3{
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+}
+
+/* ---------- Loader ---------- */
+#loader{
+  position:fixed;
+  inset:0;
+  background:var(--plum-deep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  transition:opacity .8s ease;
+}
+.diyaLoad{
+  font-size:54px;
+  animation:flicker 1.4s infinite ease-in-out;
+}
+@keyframes flicker{
+  0%,100%{transform:scale(1) rotate(-2deg);filter:brightness(1);}
+  50%{transform:scale(1.08) rotate(2deg);filter:brightness(1.3);}
+}
+#loader p{
+  margin-top:22px;
+  letter-spacing:.05em;
+  color:var(--gold);
+  font-size:15px;
+}
+
+/* ---------- String lights (used on hero + footer) ---------- */
+.lights{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:60px;
+  display:flex;
+  justify-content:space-evenly;
+  pointer-events:none;
+}
+.lights span{
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 12px 4px var(--gold);
+  animation:twinkle 2.4s infinite ease-in-out;
+  margin-top:18px;
+}
+.lights span:nth-child(odd){animation-delay:.6s;background:var(--marigold);box-shadow:0 0 12px 4px var(--marigold);}
+.lights span:nth-child(3n){animation-delay:1.2s;}
+@keyframes twinkle{
+  0%,100%{opacity:.35;}
+  50%{opacity:1;}
+}
+
+/* ---------- Falling marigold petals ---------- */
+.petal{
+  position:fixed;
+  top:-30px;
+  font-size:18px;
+  pointer-events:none;
+  z-index:5;
+  animation:drift linear forwards;
+}
+@keyframes drift{
+  0%{transform:translateY(0) rotate(0deg);opacity:1;}
+  100%{transform:translateY(110vh) rotate(300deg);opacity:0;}
+}
+
+/* ---------- Nav dots ---------- */
+#navDots{
+  position:fixed;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:60;
+}
+#navDots button{
+  width:10px;height:10px;
+  border-radius:50%;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  cursor:pointer;
+  padding:0;
+  transition:.3s;
+}
+#navDots button.active{
+  background:var(--gold);
+  box-shadow:0 0 10px var(--gold);
+}
+@media (max-width:640px){ #navDots{display:none;} }
+
+/* ---------- Sections shared ---------- */
+section{
+  min-height:100vh;
+  padding:100px 8vw;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.eyebrow{
+  color:var(--marigold);
+  font-size:14px;
+  margin-bottom:10px;
+}
+.reveal{opacity:0;transform:translateY(40px);transition:1s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* ---------- Hero ---------- */
+#hero{
+  align-items:flex-start;
+  background:radial-gradient(ellipse at 30% 20%, #3a2154 0%, var(--plum-deep) 70%);
+}
+#hero h1{
+  font-size:clamp(38px,7vw,72px);
+  color:var(--cream);
+  max-width:11ch;
+  line-height:1.1;
+}
+#hero h1 span{color:var(--gold);}
+#hero p{
+  margin-top:22px;
+  max-width:44ch;
+  font-size:18px;
+  color:#e7d9f2;
+}
+.beginBtn{
+  margin-top:44px;
+  padding:16px 36px;
+  border:none;
+  border-radius:100px;
+  background:var(--gold);
+  color:var(--plum-deep);
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(242,182,50,.5);
+  transition:.3s;
+}
+.beginBtn:hover{transform:translateY(-3px);}
+
+/* ---------- Scrapbook / moments ---------- */
+#moments{background:linear-gradient(180deg,var(--plum-deep),#1a0e28);}
+#moments h2{font-size:clamp(30px,5vw,46px);color:var(--cream);margin-bottom:50px;}
+.scrapbook{
+  display:flex;
+  flex-wrap:wrap;
+  gap:34px;
+  justify-content:center;
+}
+.polaroid{
+  background:#fdf7ec;
+  padding:12px 12px 40px;
+  width:220px;
+  border-radius:4px;
+  box-shadow:0 15px 30px rgba(0,0,0,.4);
+  cursor:pointer;
+  transition:transform .4s ease;
+}
+.polaroid:nth-child(odd){transform:rotate(-4deg);}
+.polaroid:nth-child(even){transform:rotate(3deg);}
+.polaroid:hover{transform:scale(1.06) rotate(0deg);z-index:2;}
+.polaroid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  background:#ccc;
+}
+.polaroid p{
+  color:#333;
+  font-family:"Playfair Display",serif;
+  text-align:center;
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* Lightbox */
+#lightbox{
+  position:fixed;inset:0;
+  background:rgba(10,4,16,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+#lightbox.show{display:flex;}
+#lightbox img{max-width:85vw;max-height:80vh;border-radius:8px;}
+#lightbox .close{
+  position:absolute;top:26px;right:36px;
+  font-size:30px;color:var(--gold);cursor:pointer;
+}
+
+/* ---------- Letter ---------- */
+#letter{
+  background:linear-gradient(180deg,#1a0e28,#2b1440);
+  align-items:center;
+  text-align:center;
+}
+.envelope{
+  width:min(90vw,420px);
+  background:var(--cream);
+  color:var(--plum-deep);
+  border-radius:8px;
+  padding:34px 30px;
+  cursor:pointer;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  transition:.5s;
+}
+.envelope.open{
+  cursor:default;
+}
+.envelope h3{font-size:22px;margin-bottom:6px;}
+.envelope .hint{font-size:13px;color:#7a6a55;margin-top:14px;}
+#letterBody{
+  font-size:16px;
+  line-height:1.8;
+  white-space:pre-line;
+  text-align:left;
+  margin-top:18px;
+  display:none;
+}
+
+/* ---------- Cake wish ---------- */
+#wish{
+  background:linear-gradient(180deg,#2b1440,#1a0e28);
+  align-items:center;
+  text-align:center;
+}
+.cakeWrap{cursor:pointer;user-select:none;display:inline-block;}
+.cake{position:relative;width:180px;margin:0 auto;}
+.candle{
+  width:10px;height:44px;
+  background:var(--gold);
+  margin:0 auto;
+  border-radius:3px;
+  position:relative;
+}
+.flame{
+  position:absolute;
+  top:-26px;left:50%;
+  transform:translateX(-50%);
+  font-size:26px;
+  animation:flameFlicker 1s infinite ease-in-out;
+}
+@keyframes flameFlicker{
+  0%,100%{transform:translateX(-50%) scale(1) rotate(-2deg);filter:brightness(1);}
+  50%{transform:translateX(-50%) scale(1.08) rotate(2deg);filter:brightness(1.3);}
+}
+.flame.out{animation:none;opacity:0;transition:opacity .5s;}
+.tier{margin:0 auto;border-radius:10px;}
+.tierTop{width:100px;height:36px;background:var(--gold);}
+.tierMid{width:140px;height:44px;background:var(--marigold);margin-top:-2px;}
+.tierBase{width:180px;height:54px;background:#8a3f6b;margin-top:-2px;border-radius:0 0 14px 14px;}
+#wishText{
+  margin-top:30px;
+  font-size:20px;
+  max-width:50ch;
+  opacity:0;
+  transition:1s;
+}
+#wishText.show{opacity:1;}
+.confettiBit{
+  position:fixed;
+  font-size:16px;
+  pointer-events:none;
+  z-index:80;
+  animation:pop 1.4s ease-out forwards;
+}
+@keyframes pop{
+  0%{transform:translate(0,0) scale(0.6);opacity:1;}
+  100%{transform:translate(var(--dx),var(--dy)) scale(1);opacity:0;}
+}
+
+/* ---------- Lantern closing ---------- */
+#closing{
+  background:radial-gradient(ellipse at 50% 100%, #3a2154 0%, var(--plum-deep) 65%);
+  align-items:center;
+  text-align:center;
+}
+#closing h2{font-size:clamp(28px,5vw,42px);margin-bottom:16px;}
+#closing p.sub{max-width:48ch;color:#e7d9f2;margin-bottom:34px;}
+.lanternBtn{
+  padding:15px 34px;
+  border-radius:100px;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  color:var(--gold);
+  cursor:pointer;
+  font-size:15px;
+  transition:.3s;
+}
+.lanternBtn:hover{background:var(--gold);color:var(--plum-deep);}
+.lantern{
+  position:fixed;
+  bottom:-80px;
+  font-size:46px;
+  z-index:70;
+  text-align:center;
+  animation:floatUp 6s ease-in forwards;
+  pointer-events:none;
+}
+.lantern span{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:12px;
+  color:var(--cream);
+  background:rgba(0,0,0,.4);
+  padding:3px 8px;
+  border-radius:6px;
+  margin-top:4px;
+  max-width:140px;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0);opacity:1;}
+  100%{transform:translateY(-115vh) translateX(30px);opacity:0;}
+}
+#finalBlessing{
+  margin-top:50px;
+  font-size:18px;
+  max-width:46ch;
+  color:var(--gold);
+  opacity:0;
+  transition:1.2s;
+}
+#finalBlessing.show{opacity:1;}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  color:#9d8bb0;
+  position:relative;
+}
+
+/* ---------- Music toggle ---------- */
+#musicToggle{
+  position:fixed;
+  bottom:22px;
+  left:22px;
+  width:46px;height:46px;
+  border-radius:50%;
+  background:var(--gold);
+  color:var(--plum-deep);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  z-index:90;
+  box-shadow:0 0 20px rgba(242,182,50,.5);
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="diyaLoad">🪔</div>
+  <p>lighting the lanterns for Shilpa Akka…</p>
+</div>
+
+<!-- FLOATING NAV -->
+<div id="navDots">
+  <button data-target="hero" class="active"></button>
+  <button data-target="moments"></button>
+  <button data-target="letter"></button>
+  <button data-target="wish"></button>
+  <button data-target="closing"></button>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="lights">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="eyebrow reveal">a little celebration for</div>
+  <h1 class="reveal">Happy Birthday,<br><span>Shilpa Akka</span> 🌼</h1>
+  <p class="reveal">Every year that passes, you give the people around you more warmth than you probably realise. Today's just for you — scroll on, there's a little journey ahead.</p>
+  <button class="beginBtn reveal" onclick="scrollToSection('moments')">Begin ↓</button>
+</section>
+
+<!-- MOMENTS -->
+<section id="moments">
+  <div class="eyebrow reveal">chapter one</div>
+  <h2 class="reveal">A few of our moments</h2>
+  <div class="scrapbook">
+    <div class="polaroid reveal"><img src="images/1.jpg" alt="memory 1"><p>that day out</p></div>
+    <div class="polaroid reveal"><img src="images/2.jpg" alt="memory 2"><p>just being silly</p></div>
+    <div class="polaroid reveal"><img src="images/3.jpg" alt="memory 3"><p>the good talks</p></div>
+    <div class="polaroid reveal"><img src="images/4.jpg" alt="memory 4"><p>one of many</p></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <span class="close">✕</span>
+  <img id="lightboxImg" src="">
+</div>
+
+<!-- LETTER -->
+<section id="letter">
+  <div class="eyebrow reveal">chapter two</div>
+  <h2 class="reveal" style="margin-bottom:30px;">A letter for you</h2>
+  <div class="envelope reveal" id="envelope" onclick="openLetter()">
+    <h3>🪔 Open when ready</h3>
+    <div class="hint" id="envelopeHint">tap to open</div>
+    <div id="letterBody"></div>
+  </div>
+</section>
+
+<!-- WISH -->
+<section id="wish">
+  <div class="eyebrow reveal">chapter three</div>
+  <h2 class="reveal" style="margin-bottom:10px;">Make a wish</h2>
+  <p class="reveal" style="max-width:40ch;margin:0 auto 30px;color:#e7d9f2;">Tap the candle and blow it out — go on, make it count.</p>
+  <div class="cakeWrap reveal" onclick="blowCandle()">
+    <div class="cake">
+      <div class="candle"><span class="flame" id="candleFlame">🔥</span></div>
+      <div class="tier tierTop"></div>
+      <div class="tier tierMid"></div>
+      <div class="tier tierBase"></div>
+    </div>
+  </div>
+  <p id="wishText">✨ Whatever you wished for, Shilpa Akka — I hope it finds its way to you. And even the things you didn't wish for out loud, I hope those come true too. ✨</p>
+</section>
+
+<!-- CLOSING -->
+<section id="closing">
+  <div class="eyebrow reveal">last chapter</div>
+  <h2 class="reveal">Send it up into the sky</h2>
+  <p class="sub reveal">One lantern, one wish for you — from me.</p>
+  <button class="lanternBtn reveal" onclick="releaseLantern()">Release the lantern 🏮</button>
+  <p id="finalBlessing">Happy Birthday, Shilpa Akka. Thank you for every bit of care you've shown me — I hope this year brings you as much joy as you bring everyone around you. 🌼</p>
+</section>
+
+<footer>made with care, for Shilpa Akka's birthday</footer>
+
+<div id="musicToggle" onclick="toggleMusic()">🔈</div>
+<audio id="bgMusic" loop src="music/theme.mp3"></audio>
+
+<script>
+// ---------- Loader ----------
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    const loader=document.getElementById("loader");
+    loader.style.opacity="0";
+    setTimeout(()=>loader.style.display="none",800);
+  },1800);
+});
+
+// ---------- Reveal on scroll ----------
+const revealEls=document.querySelectorAll(".reveal");
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("active"); });
+},{threshold:.2});
+revealEls.forEach(el=>io.observe(el));
+
+// ---------- Petals ----------
+function spawnPetal(){
+  const p=document.createElement("div");
+  p.className="petal";
+  p.innerHTML=Math.random()>.5?"🌼":"🧡";
+  p.style.left=Math.random()*100+"vw";
+  const dur=6+Math.random()*5;
+  p.style.animationDuration=dur+"s";
+  p.style.fontSize=(14+Math.random()*14)+"px";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),dur*1000);
+}
+setInterval(spawnPetal,600);
+
+// ---------- Nav dots ----------
+const dots=document.querySelectorAll("#navDots button");
+dots.forEach(d=>d.addEventListener("click",()=>scrollToSection(d.dataset.target)));
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+const sections=[...dots].map(d=>document.getElementById(d.dataset.target));
+window.addEventListener("scroll",()=>{
+  let current=sections[0].id;
+  sections.forEach(s=>{
+    if(window.scrollY+window.innerHeight/2 > s.offsetTop) current=s.id;
+  });
+  dots.forEach(d=>d.classList.toggle("active",d.dataset.target===current));
+});
+
+// ---------- Lightbox ----------
+document.querySelectorAll(".polaroid img").forEach(img=>{
+  img.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    document.getElementById("lightboxImg").src=img.src;
+    document.getElementById("lightbox").classList.add("show");
+  });
+});
+function closeLightbox(e){
+  document.getElementById("lightbox").classList.remove("show");
+}
+
+// ---------- Letter ----------
+let letterOpened=false;
+function openLetter(){
+  if(letterOpened) return;
+  letterOpened=true;
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("envelopeHint").style.display="none";
+  const body=document.getElementById("letterBody");
+  body.style.display="block";
+  const message=`Dear Shilpa Akka,
+
+You've always had this way of making things feel lighter just by being around. I don't say it often enough, so I'm saying it today —
+
+thank you for the care, the advice, and the laughs. I hope this year gives you back even a little of what you give everyone else.
+
+Happy Birthday. 🌼`;
+  let i=0;
+  function type(){
+    if(i<message.length){
+      body.innerHTML+=message.charAt(i);
+      i++;
+      setTimeout(type,28);
+    }
+  }
+  type();
+}
+
+// ---------- Cake wish ----------
+let candleBlown=false;
+function blowCandle(){
+  if(candleBlown) return;
+  candleBlown=true;
+  document.getElementById("candleFlame").classList.add("out");
+  document.getElementById("wishText").classList.add("show");
+  burstConfetti();
+}
+function burstConfetti(){
+  const colors=["🌼","✨","🧡","💫"];
+  for(let i=0;i<24;i++){
+    const c=document.createElement("div");
+    c.className="confettiBit";
+    c.innerHTML=colors[Math.floor(Math.random()*colors.length)];
+    c.style.left="50%";
+    c.style.top="55%";
+    const dx=(Math.random()-0.5)*400;
+    const dy=(Math.random()-0.9)*400;
+    c.style.setProperty("--dx",dx+"px");
+    c.style.setProperty("--dy",dy+"px");
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),1400);
+  }
+}
+
+// ---------- Lantern release ----------
+function releaseLantern(){
+  const lantern=document.createElement("div");
+  lantern.className="lantern";
+  lantern.style.left=(40+Math.random()*20)+"vw";
+  lantern.innerHTML="🏮<span>Happy Birthday Akka</span>";
+  document.body.appendChild(lantern);
+  setTimeout(()=>lantern.remove(),6000);
+  setTimeout(()=>{
+    document.getElementById("finalBlessing").classList.add("show");
+  },1500);
+}
+
+// ---------- Music ----------
+const audio=document.getElementById("bgMusic");
+function toggleMusic(){
+  const btn=document.getElementById("musicToggle");
+  if(audio.paused){
+    audio.play().catch(()=>{});
+    btn.innerHTML="🔊";
+  }else{
+    audio.pause();
+    btn.innerHTML="🔈";
+  }
+}
+</script>
+
+</body>
+</html>
