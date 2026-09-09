@@ -643,7 +643,7 @@ footer{
 
   <div class="akkaDialogue reveal" id="akkaDialogue">
     <div class="akkaTag">Akka</div>
-    <p id="dialogueText">Hmm… enna panra nee inniku? 👀</p>
+    <p id="dialogueText">Ungalukku pidicha chocolate cake pannalama👀</p>
   </div>
 
   <!-- SCENE 0: BALLOON POP -->
@@ -726,7 +726,7 @@ footer{
 
   <!-- SCENE 4: CREAM -->
   <div class="gameScene" id="scene-cream">
-    <p class="sceneHint">Swipe left and right over the cake to spread the chocolate cream.</p>
+    <p class="sceneHint">Swipe left to right over the cake to spread the chocolate cream.</p>
     <div class="progressBar"><div class="progressFill" id="creamProgress"></div></div>
   </div>
 
@@ -748,7 +748,7 @@ footer{
   <div class="gameScene" id="scene-final">
     <p class="sceneHint" id="wishPrompt">Make a wish… then blow out the candle.</p>
     <button class="beginBtn" style="padding:14px 30px;font-size:14px;" id="blowBtn" onclick="blowCandles()">Blow the candle 💨</button>
-    <p id="finalCakeText">🎂 Ithu just oru cake illa… nee un kaiyaala enakkaaga senja cake. ❤️<br>Happy Birthday, Shilpa Akka!</p>
+    <p id="finalCakeText">🎂 Ithu just oru normal cake illa… nee unga kaiyaala senja cake. ❤️<br>Happy Birthday, Shilpa Akka!</p>
   </div>
 </section>
 
@@ -765,7 +765,7 @@ footer{
 
 <div id="musicToggle" onclick="toggleMusic()">🔈</div>
 <audio id="bgMusic" loop src="birthday-song.mp3"></audio>
-<audio id="bgMusic2" loop src="birthday-song-2.mp3"></audio>
+<audio id="bgMusic2" loop src="birthday-song-1.mp3"></audio>
 
 <script>
 // ---------- Loader ----------
@@ -996,12 +996,12 @@ function popBalloon(b){
       say("Super! Golden balloon! 😍");
       burstFX(["⭐","✨"],10,0.6);
     }else if(t.type==="bomb"){
-      say("Aiyo! Adha pop pannaadha! 😅");
+      say("Aiyo! Adha pop pannaadhinga! 😅");
     }else if(balloonScore-balloonLastMilestone>=50){
       balloonLastMilestone=balloonScore;
       say("Wowww! Super ka! ❤️");
     }else if(balloonsPopped%5===0){
-      say("Akka! 😂 Innum konjam balloons pop pannu!");
+      say("Akka! 😂 Innum konjam balloons pop pannunga!");
     }
   }
   balloonScoreEl.textContent=balloonScore;
@@ -1071,12 +1071,12 @@ function afterBalloonGame(){
 const ingOrder=["flour","cocoa","sugar","eggs","milk","butter"];
 let ingIndex=0;
 const ingLines={
-  flour:"Nalla thொடங்குறோம்… flour add pannu. 🌾",
-  cocoa:"Chocolate வாசனை start ஆகுது already! 🍫",
-  sugar:"Sweet-ஆ ஆகப்போகுது, un மாதிரியே. 😌",
+  flour:"Nalla start pannanum… flour add pannunga. 🌾",
+  cocoa:"Chocolate fragrance vara start aagudhu already! 🍫",
+  sugar:"Sweet aaga pogudhu, ungala maariye. 😌",
   eggs:"Careful ah… don't drop the shell! 🥚",
-  milk:"Smooth ah mix ஆகும் இப்போ. 🥛",
-  butter:"Last one! Rich ஆ ஆகப்போகுது cake. 🧈"
+  milk:"Smooth ah mix aagum ippo. 🥛",
+  butter:"Last one! Rich aaga pogudhu cake. 🧈"
 };
 document.querySelectorAll("#ingredientTray .ingChip").forEach(chip=>{
   makeDraggable(chip,(under,el)=>{
@@ -1091,14 +1091,14 @@ document.querySelectorAll("#ingredientTray .ingChip").forEach(chip=>{
       ingIndex++;
       if(ingIndex===ingOrder.length){
         setTimeout(()=>{
-          say("Cake batter ready ah irukku! Ippo mix pannu. 🥣");
+          say("Cake batter ready ah irukku! Ippo mix pannunga. 🥣");
           setTimeout(()=>showScene("mix"),1600);
         },700);
       }
     }else{
       el.classList.add("wrongShake");
       setTimeout(()=>el.classList.remove("wrongShake"),400);
-      say(ing==="sugar"?"Dei 😂 adhu sugar illa… salt!":"Aiyo, adhu illa da… vera order-la podu!");
+      say(ing==="sugar"?"Akka 😂 adhu sugar illa… salt!":"Aiyo, adhu illa da… vera order-la podunga!");
     }
   });
 });
@@ -1157,7 +1157,7 @@ function startBaking(){
   document.getElementById("bakeBtn").classList.add("hidden");
   document.getElementById("peekBtn").classList.remove("hidden");
   document.getElementById("bakeProgressWrap").classList.remove("hidden");
-  say("Bake ஆகிக்கிட்டு இருக்கு… wait பண்ணு. 🔥");
+  say("Bake aagitu irukku... wait pannunga ✨. 🔥");
   const timer=setInterval(()=>{
     bakeProgress=Math.min(100,bakeProgress+ (100/40));
     document.getElementById("bakeProgress").style.width=bakeProgress+"%";
@@ -1169,7 +1169,7 @@ function startBaking(){
 }
 function peekOven(){
   if(baked) return;
-  say("Dei wait! Cake innum ready aagala 😂");
+  say("Akka wait! Cake innum ready aagala 😂");
   bakeProgress=Math.max(0,bakeProgress-15);
   document.getElementById("bakeProgress").style.width=bakeProgress+"%";
 }
@@ -1217,7 +1217,7 @@ document.addEventListener("pointerdown",(e)=>{
         creamFill.classList.add("full","drizzled");
         makeDrips();
         window.removeEventListener("pointermove",track);
-        say("Chocolate cake ah? Nee en favourite-ah nyabagam vachirukka! 🥹❤️");
+        say("Chocolate cake dhaan unga favourite ah irukkum pola! 🥹❤️");
         setTimeout(()=>showScene("decorate"),1600);
       }
     }
@@ -1248,7 +1248,7 @@ function placeDecor(type){
     candlePlaced=true;
     document.getElementById("candleOnCake").classList.remove("hidden");
     document.getElementById("candleChip").classList.add("placedOnce");
-    say(decorCount>=1?"Perfect! Cake ready ah irukku! 🎂":"Candle ready! Innum konjam decorate pannu. 🕯️");
+    say(decorCount>=1?"Perfect! Cake ready ah irukku! 🎂":"Candle ready! Innum konjam decorate pannunga. 🕯️");
   }else if(type==="topper"){
     if(topperPlaced) return;
     topperPlaced=true;
